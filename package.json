@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mockup": "json-server -w db.json -p 4444 -d 400"
   },
   "dependencies": {
     "next": "9.5.2",

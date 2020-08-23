@@ -4,15 +4,15 @@ import Head from "next/head";
 import { Navbar } from "./styled/styled";
 import GlobalStyle from "./styled/theme";
 
-export function MainLayouts({ children }) {
+export function MainLayouts({ children, title = "Next styled App" }) {
   return (
     <>
       <GlobalStyle />
       <Head>
-        <title>Next styled APP</title>
+        <title>{title}</title>
         <meta name="keywords" content="nextJS, next, styled-components" />
-        <meta name="description" content="nextJS application"/>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <meta name="description" content="nextJS application" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
       </Head>
       <Navbar>
         <ul>
@@ -33,9 +33,7 @@ export function MainLayouts({ children }) {
           </li>
         </ul>
       </Navbar>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 }

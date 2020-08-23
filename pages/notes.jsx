@@ -3,7 +3,7 @@ import { MainLayouts } from "../components/MainLayout";
 
 export default function Notes() {
   return (
-    <MainLayouts>
+    <MainLayouts title='Notes'>
       <h1>Notes</h1>
       <StyledButton primary>Create Note</StyledButton>
     </MainLayouts>
