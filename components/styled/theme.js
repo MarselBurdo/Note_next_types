@@ -12,7 +12,10 @@ html {
 }
 body{
   font-size: 28px;
-
+  display: grid;
+  // justify-items: center;
+  // grid-auto-flow: column;
+  
 }
 `
 

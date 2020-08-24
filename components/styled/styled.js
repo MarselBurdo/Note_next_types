@@ -66,3 +66,28 @@ export const Navbar = styled.div`
     }
   }
 `;
+
+export const Card = styled.div`
+display: grid;
+-webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, -3px 5px 6px 9px rgba(0,0,0,0); 
+box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, -3px 5px 6px 9px rgba(0,0,0,0);
+background: #ffff3f;
+width: 200px;
+height: 200px;
+margin-left: 5%;
+margin-top: 5%;
+
+a{
+  justify-self: center;
+  position: relative;
+  display: block;
+  padding: 4px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+`
+export const Sector = styled.div`
+display: grid;
+grid-gap: 5px;
+grid-template-columns: 1fr 1fr 1fr
+`
