@@ -1,5 +1,7 @@
 import App from 'next/app'
 import { ThemeProvider } from 'styled-components'
+import {Provider} from 'react-redux'
+
 
 const theme = {}
 
