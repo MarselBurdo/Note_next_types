@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { startShow } from "../../components/store/actions/fetchAction";
 
 export default function Note({ note: serverNote }) {
+  console.log(serverNote);
   const dispatch = useDispatch();
   const router = useRouter();
-  console.log(router.query.id);
-  const note = useSelector(state=>state.fetch.note)
+
+  const note = useSelector((state) => state.fetch.note);
 
   useEffect(() => {
     if (!serverNote) {
@@ -20,19 +21,30 @@ export default function Note({ note: serverNote }) {
 
   return (
     <>
-      <MainLayouts>
-        <h1 style={{ textAlign: "center" }}>Note {note.title}</h1>
-        <br />
-        <br />
-        <br />
-        <hr />
-        <p>{note.text}</p>
-        <StyledButton primary>
-          <Link href={"/notes"}>
-            <a style={{ textDecoration: "none" }}>Back to notes page</a>
-          </Link>
-        </StyledButton>
-      </MainLayouts>
+      {" "}
+      {!note ? (
+        <>
+          <MainLayouts>
+            <h1 style={{ textAlign: "center" }}>Note {note.title}</h1>
+            <br />
+            <br />
+            <br />
+            <hr />
+            <p>{note.text}</p>
+            <StyledButton primary>
+              <Link href={"/notes"}>
+                <a style={{ textDecoration: "none" }}>Back to notes page</a>
+              </Link>
+            </StyledButton>
+          </MainLayouts>
+        </>
+      ) : (
+        <>
+          <MainLayouts>
+            <h1>Loading...</h1>
+          </MainLayouts>
+        </>
+      )}
     </>
   );
 }
