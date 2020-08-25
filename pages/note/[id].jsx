@@ -1,8 +1,23 @@
 import { MainLayouts } from "../../components/MainLayout";
 import { StyledButton } from "../../components/styled/styled";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { startShow } from "../../components/store/actions/fetchAction";
 
 export default function Note({ note: serverNote }) {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  console.log(router.query.id);
+  const note = useSelector(state=>state.fetch.note)
+
+  useEffect(() => {
+    if (!serverNote) {
+      dispatch(startShow(router.query.id));
+    }
+  }, [dispatch]);
+
   return (
     <>
       <MainLayouts>

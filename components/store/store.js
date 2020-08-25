@@ -5,6 +5,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 
 import combineReducers from "./reducers/combine";
+import rootSaga from "./saga/sagas";
 
 const initialStore = {};
 const sagaMiddleware = createSagaMiddleware()
@@ -16,6 +17,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-sagaMiddleware.run(function*(){})
+sagaMiddleware.run(rootSaga)
 
 export default store;

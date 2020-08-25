@@ -10,7 +10,7 @@ export const showNotes = () => async dispatch => {
 }
 
 export const startShow = (id)=>{
-  return { type: types.SHOW_ONE_NOTE, id}
+  return { type: types.START_SHOW_ONE_NOTE, id}
 }
 
 export const showOneNote = (note)=>{
