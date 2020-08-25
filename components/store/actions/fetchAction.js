@@ -8,3 +8,14 @@ export const showNotes = () => async dispatch => {
     payload: resF
   })
 }
+
+export const startShow = (id)=>{
+  return { type: types.SHOW_ONE_NOTE, id}
+}
+
+export const showOneNote = (note)=>{
+  return {
+    type: types.SHOW_ONE_NOTE,
+    payload: note
+  }
+}

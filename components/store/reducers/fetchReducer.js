@@ -15,6 +15,13 @@ export const fetchReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
+      case types.SHOW_ONE_NOTE:
+        return {
+          ...state,
+          notes: action.payload,
+          loading: false,
+          error: null
+        };
 
     default:
       return state;
