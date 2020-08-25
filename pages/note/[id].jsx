@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { startShow } from "../../components/store/actions/fetchAction";
 
 export default function Note({ note: serverNote }) {
-  console.log(serverNote);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -22,7 +21,7 @@ export default function Note({ note: serverNote }) {
   return (
     <>
       {" "}
-      {!note ? (
+      {note ? (
         <>
           <MainLayouts>
             <h1 style={{ textAlign: "center" }}>Note {note.title}</h1>
@@ -61,3 +60,16 @@ Note.getInitialProps = async ({ query, req }) => {
     note,
   };
 };
+
+// export async function getServerSideProps({ query, req }) {
+//   // if (!req) {
+//   //   return {
+//   //     note: null,
+//   //   };
+//   // }
+//   const resp = await fetch(`http://localhost:4444/notes/${query.id}`);
+//   const note = await resp.json();
+//   return {
+//     props: { note },
+//   };
+// }
