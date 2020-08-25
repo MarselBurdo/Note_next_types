@@ -5,8 +5,14 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { startShow } from "../../components/store/actions/fetchAction";
+import { NextPageContext } from "next";
+import { MyNote } from "../../interfaces/post";
 
-export default function Note({ note: serverNote }) {
+interface NotePageProps {
+  notes: MyNote;
+}
+
+export default function Note({ note: serverNote }: NotePageProps) {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -48,14 +54,21 @@ export default function Note({ note: serverNote }) {
   );
 }
 
-Note.getInitialProps = async ({ query, req }) => {
+interface NoteNextPageContext extends NextPageContext {
+  query: {
+    id: string;
+  };
+}
+
+Note.getInitialProps = async ({ query, req }: NoteNextPageContext) => {
   if (!req) {
     return {
       note: null,
     };
   }
-  const resp = await fetch(`http://localhost:4444/notes/${query.id}`);
-  const note = await resp.json();
+
+  const resp = await fetch(`${process.env.API_URL}/notes/${query.id}`);
+  const note: MyNote = await resp.json();
   return {
     note,
   };
